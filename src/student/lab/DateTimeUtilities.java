@@ -13,16 +13,32 @@ import java.time.temporal.ChronoUnit;
 import static java.time.temporal.ChronoUnit.HOURS;
 
 /**
- *
- * @author cscherbert1
+ *A utility class designed to provide an aggregation of commonly used actions 
+ * when interacting with the LocalDate & LocalDateTime classes found in the 
+ * new API for Java (after JDK 8). 
+ * 
+ * @author Collin M. Scherbert
+ * @version 1.0
+ * @since 4/17/2017
  */
 public class DateTimeUtilities {
     
 //    You must provide a minimum of two methods for converting Date/Time
 //     objects to formatted strings
     
-    public String dateTimeToString_AmericanFormat(LocalDateTime dateTime){
-        
+    /**
+     * Accepts a LocalDateTime object and converts it into a String that is formatted
+     * in the Americanized style of mm/dd/yyyy hh:mm:ss
+     * @param dateTime -a LocalDateTime object
+     * @return properly formatted String
+     * @throws IllegalArgumentException if dateTime is null. 
+     * 
+     */
+    
+    public String dateTimeToString_AmericanFormat(LocalDateTime dateTime) throws IllegalArgumentException{
+        if(dateTime == null){
+            throw new IllegalArgumentException("Error: LocalDateTime object cannot be null.");
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ssa");
         String stringDateAndTime = dateTime.format(formatter);
         return stringDateAndTime;

@@ -12,6 +12,8 @@ import static java.time.temporal.ChronoUnit.SECONDS;
 /**
  *
  * @author cscherbert1
+ * @version 1.0
+ * @since 4/17/2017
  */
 public class Startup {
 
